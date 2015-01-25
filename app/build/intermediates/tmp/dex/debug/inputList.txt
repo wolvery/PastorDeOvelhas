@@ -1,0 +1,5 @@
+C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\classes\debug
+C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-e8b0bc69c91e217ad9bd9d6f36cf7226253e91e3.jar
+C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-56dbf34bfb9a2805779bb603835286c41438bacd.jar
+C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-5fb373315ad2f94bbd2b99298b79873d2e730c87.jar
+C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-a10dcb9f3ba023ee45459908ef0aa537594ee6d0.jar
