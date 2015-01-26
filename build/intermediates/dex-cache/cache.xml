@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
-        <dex dex="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-5fb373315ad2f94bbd2b99298b79873d2e730c87.jar" />
-    </item>
-    <item
-        jar="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
-        <dex dex="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-a10dcb9f3ba023ee45459908ef0aa537594ee6d0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
+        jar="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\libs\internal_impl-20.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d">
-        <dex dex="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-56dbf34bfb9a2805779bb603835286c41438bacd.jar" />
+        <dex dex="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\internal_impl-20.0.0-ec58cc1d840bf4738ae5f40d38d30d4a5675412a.jar" />
     </item>
     <item
-        jar="C:\Users\Guilherme\AppData\Local\Android\sdk3\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
+        jar="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef">
+        <dex dex="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-3deff7d47cc027a0b1ebdba113faf7ecc7e40688.jar" />
+    </item>
+    <item
+        jar="C:\Users\Vicente Marcelo\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\20.0.0\support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="9d9013e9ff35fc3756411e62873c363c70c638fa">
-        <dex dex="C:\Users\Guilherme\AndroidstudioProjects\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-e8b0bc69c91e217ad9bd9d6f36cf7226253e91e3.jar" />
+        <dex dex="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\support-annotations-20.0.0-bbcac4c79c5b3072f01819adf1e09a8b7cd52d95.jar" />
+    </item>
+    <item
+        jar="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\exploded-aar\com.android.support\support-v4\20.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0">
+        <dex dex="C:\Users\Vicente Marcelo\Documents\GitHub\PastorDeOvelhas\app\build\intermediates\pre-dexed\debug\classes-d0856514cfa27249ea676262d653196246134727.jar" />
     </item>
 
 </items>
