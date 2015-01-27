@@ -186,14 +186,15 @@ public class Dinamica {
  * @param personagem
  * @param casaDestino
  */
-	public void moverParaCasaDesocupada(Personagem personagem, Casa casaDestino) {
+	public Boolean moverParaCasaDesocupada(Personagem personagem, Casa casaDestino) {
 		Ocupante espacoDestino = casaOcupadaPor(casaDestino);
 		if (espacoDestino.equals(Ocupante.Vazio)){
 			Casa origem = personagem.getCasaPersonagem();
 			esvaziarCasa(origem);			
 			personagem.setCasaPersonagem(casaDestino);
-			
+			return true;
 		}
+        return false;
 	}
 	/**
 	 * Acao do lobo devorar a ovelha do adversario.
@@ -208,7 +209,7 @@ public class Dinamica {
 			if (diferencaEntreCasas(lobo.getCasaPersonagem(), ovelha.getCasaPersonagem())){
 				Casa antigacasaDoLobo = lobo.getCasaPersonagem();
 				lobo.comerOvelha();
-				ovelha.atacada();
+				ovelha.sofrerAtaque();
 				lobo.setCasaPersonagem(ovelha.getCasaPersonagem());				
 				figurantes.remove(ovelha);
 				figurantes.add(new Figurante(Ocupante.Vazio,antigacasaDoLobo));

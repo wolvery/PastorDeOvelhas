@@ -291,6 +291,9 @@ int id button33 0x7f080063
 int id button34 0x7f080064
 int id button35 0x7f080065
 int id button36 0x7f080066
+int id button37 0x7f080068
+int id button38 0x7f080069
+int id button39 0x7f08006a
 int id button4 0x7f080041
 int id button5 0x7f080042
 int id button6 0x7f080043
@@ -305,7 +308,7 @@ int id disableHome 0x7f080009
 int id dropdown 0x7f080019
 int id edit_query 0x7f080030
 int id end 0x7f080010
-int id exit 0x7f080069
+int id exit 0x7f08006c
 int id expand_activities_button 0x7f080026
 int id expanded_menu 0x7f08002c
 int id home 0x7f080003
@@ -317,7 +320,7 @@ int id listMode 0x7f080006
 int id list_item 0x7f080029
 int id middle 0x7f080011
 int id never 0x7f080016
-int id new_game 0x7f080068
+int id new_game 0x7f08006b
 int id none 0x7f080012
 int id normal 0x7f080007
 int id progress_circular 0x7f080004

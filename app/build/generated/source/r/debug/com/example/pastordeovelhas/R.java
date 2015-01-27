@@ -872,6 +872,9 @@ containing a value of this type.
         public static final int button34=0x7f080064;
         public static final int button35=0x7f080065;
         public static final int button36=0x7f080066;
+        public static final int button37=0x7f080068;
+        public static final int button38=0x7f080069;
+        public static final int button39=0x7f08006a;
         public static final int button4=0x7f080041;
         public static final int button5=0x7f080042;
         public static final int button6=0x7f080043;
@@ -886,7 +889,7 @@ containing a value of this type.
         public static final int dropdown=0x7f080019;
         public static final int edit_query=0x7f080030;
         public static final int end=0x7f080010;
-        public static final int exit=0x7f080069;
+        public static final int exit=0x7f08006c;
         public static final int expand_activities_button=0x7f080026;
         public static final int expanded_menu=0x7f08002c;
         public static final int home=0x7f080003;
@@ -898,7 +901,7 @@ containing a value of this type.
         public static final int list_item=0x7f080029;
         public static final int middle=0x7f080011;
         public static final int never=0x7f080016;
-        public static final int new_game=0x7f080068;
+        public static final int new_game=0x7f08006b;
         public static final int none=0x7f080012;
         public static final int normal=0x7f080007;
         public static final int progress_circular=0x7f080004;

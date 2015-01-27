@@ -14,7 +14,7 @@ public class Ovelha extends Personagem {
 	// Estado da Ovelha em relacao a refeicao.
 	private EstadoOvelha estado;
 
-	private enum Vida {
+	public enum Vida {
 		Morto(2), Machucado(1), Vivo(0);
 
 		private int valorVida;
@@ -49,9 +49,11 @@ public class Ovelha extends Personagem {
 		this.estado = nomeEstado;
 	}
 
-	public int getEstadoVida() {
-		return situacaoVida.valorVida;
+	public Vida getEstadoVida() {
+		return situacaoVida;
 	}
+
+    public Boolean ovelhaViva(){ return situacaoVida.equals(Vida.Vivo)?true:false; }
 
 	public void setEstadoVida(Vida situacaoVida) {
 		this.situacaoVida = situacaoVida;
@@ -97,7 +99,7 @@ public class Ovelha extends Personagem {
 	/**
 	 * Ovelha foi atacada.
 	 */
-	public void atacada() {
+	public void sofrerAtaque() {
 		if (situacaoVida.equals(Vida.Vivo)) {
 			situacaoVida = Vida.Machucado;
 		}

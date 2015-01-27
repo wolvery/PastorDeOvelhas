@@ -38,6 +38,8 @@ public class MainActivity extends ActionBarActivity {
     private TextView texto;
     private Button buttonMover,buttonOvelha,buttonCerca;
 	private ArrayList<Personagem> elementosAdversarios;
+    private Casa ultimaCasaPressionada,casaAcao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
     	super.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
@@ -127,6 +129,185 @@ public class MainActivity extends ActionBarActivity {
         }
         return false;
     }
+    public void alteraButao(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.DKGRAY);
+        buttons[x][y].setOnClickListener(new ButtonMoveListener(x,y));
+    }
+
+    public void desalteraButao(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.TRANSPARENT);
+        buttons[x][y].setOnClickListener(new ButtonClickListener(x,y));
+    }
+    public void alteraButaoOvelha(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.DKGRAY);
+        buttons[x][y].setOnClickListener(new ButtonOvelhaCercaListener(x,y));
+    }
+
+    public void desalteraButaoOvelha(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.TRANSPARENT);
+        buttons[x][y].setOnClickListener(new ButtonClickListener(x,y));
+    }
+    public void alteraButaoCerca(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.DKGRAY);
+        buttons[x][y].setOnClickListener(new ButtonOvelhaCercaListener(x,y));
+    }
+
+    public void desalteraButaoDaCerca(int x,int y){
+        buttons[x][y].setBackgroundColor(Color.TRANSPARENT);
+        buttons[x][y].setOnClickListener(new ButtonClickListener(x,y));
+    }
+
+    public void avaliaCasaAoRedor(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 <6){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x+1,y))){
+                alteraButao(x+1,y);
+            }
+        }
+        if (x-1 >=0){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x-1,y))){
+                alteraButao(x-1,y);
+            }
+        }
+        if (y+1 <6){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x,y+1))){
+                alteraButao(x,y+1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x,y-1))){
+                alteraButao(x,y-1);
+            }
+        }
+    }
+    public void avaliaOvelhaAoRedor(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 < 6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x+1,y)).equals(Ocupante.Ovelha)){
+                alteraButaoOvelha(x + 1, y);
+            }
+        }
+        if (x-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x-1,y)).equals(Ocupante.Ovelha)){
+                alteraButaoOvelha(x - 1, y);
+            }
+        }
+        if (y+1 < 6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y+1)).equals(Ocupante.Ovelha)){
+                alteraButaoOvelha(x, y + 1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y-1)).equals(Ocupante.Ovelha)){
+                alteraButaoOvelha(x, y - 1);
+            }
+        }
+    }
+    public void avaliaCercaAoRedor(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 <6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x+1,y)).equals(Ocupante.Cerca)){
+                alteraButaoCerca(x + 1, y);
+            }
+        }
+        if (x-1 >=0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x-1,y)).equals(Ocupante.Cerca)){
+                alteraButaoCerca(x - 1, y);
+            }
+        }
+        if (y+1 <6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y+1)).equals(Ocupante.Cerca)){
+                alteraButaoCerca(x, y + 1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y-1)).equals(Ocupante.Cerca)){
+                alteraButaoCerca(x, y - 1);
+            }
+        }
+    }
+    public void desativaOvelhaAoRedor(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 < 6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x+1,y)).equals(Ocupante.Ovelha)){
+                desalteraButaoOvelha(x + 1, y);
+            }
+        }
+        if (x-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x-1,y)).equals(Ocupante.Ovelha)){
+                desalteraButaoOvelha(x - 1, y);
+            }
+        }
+        if (y+1 < 6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y+1)).equals(Ocupante.Ovelha)){
+                desalteraButaoOvelha(x, y + 1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y-1)).equals(Ocupante.Ovelha)){
+                desalteraButaoOvelha(x, y - 1);
+            }
+        }
+    }
+    public void desativaCercaAoRedor(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 <6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x+1,y)).equals(Ocupante.Cerca)){
+                desalteraButaoDaCerca(x + 1, y);
+            }
+        }
+        if (x-1 >=0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x-1,y)).equals(Ocupante.Cerca)){
+                desalteraButaoDaCerca(x - 1, y);
+            }
+        }
+        if (y+1 <6){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y+1)).equals(Ocupante.Cerca)){
+                desalteraButaoDaCerca(x, y + 1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.casaOcupadaPor(new Casa(x,y-1)).equals(Ocupante.Cerca)){
+                desalteraButaoDaCerca(x, y - 1);
+            }
+        }
+    }
+
+    public void desativarCasasDisponiveis(Casa casa){
+        int x = casa.getPosicaoX();
+        int y = casa.getPosicaoY();
+        //Casa de cima vazia
+        if (x+1 <6){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x+1,y))){
+                desalteraButao(x + 1, y);
+            }
+        }
+        if (x-1 >=0){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x-1,y))){
+                desalteraButao(x - 1, y);
+            }
+        }
+        if (y+1 <6){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x,y+1))){
+                desalteraButao(x, y + 1);
+            }
+        }
+        if (y-1 >= 0){
+            if (dinamicaJogo.espacoDisponivel(new Casa(x,y-1))){
+                desalteraButao(x, y - 1);
+            }
+        }
+    }
     private Boolean atualizarCasaPorOcupante(Casa casa, Ocupante ocupante){
         switch (ocupante){
             case Ovelha:
@@ -157,8 +338,64 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    private void habilitarMovimentoPersonagem(){
 
+    /**
+     * Servidor deve avaliar acao.
+     */
+    private void habilitarMovimentoPersonagem(){
+        Personagem personagem = dinamicaJogo.casaOcupadaPorElemento(ultimaCasaPressionada);
+        if (dinamicaJogo.moverParaCasaDesocupada(personagem,casaAcao)){
+            meuJogador.removePersonagem(personagem);
+            personagem.setCasaPersonagem(casaAcao);
+            meuJogador.addPersonagem(personagem);
+        }
+    }
+
+    private void criarPersonagemNaCasaAcao(Personagem personagem){
+        if (atualizarCasaPorOcupante(casaAcao,personagem.getNomeEspaco()))
+            meuJogador.addPersonagem(personagem);
+    }
+
+    private void criarOvelha(){
+        criarPersonagemNaCasaAcao(new Ovelha(Ocupante.Ovelha,casaAcao));
+    }
+    private void criarCerca(){
+        criarPersonagemNaCasaAcao(new Figurante(Ocupante.Cerca,casaAcao));
+    }
+
+    private void atualizaEstadoOvelha(Casa casa){
+        if (dinamicaJogo.casaOcupadaPor(casa).equals(Ocupante.Ovelha)) {
+            Ovelha ovelha = (Ovelha) dinamicaJogo.casaOcupadaPorElemento(casaAcao);
+            meuJogador.atualizaEstadoOvelha(ovelha);
+        }
+
+    }
+
+    private void alimentarOvelha(){
+        Ovelha ovelha = (Ovelha) dinamicaJogo.casaOcupadaPorElemento(casaAcao);
+        ovelha.alimentarOvelha();
+        meuJogador.alimentaOvelha(ovelha);
+    }
+
+    private void comerOvelha(){
+        Ovelha ovelha = (Ovelha) dinamicaJogo.casaOcupadaPorElemento(casaAcao);
+        Lobo loboo =  meuJogador.getMeuLobo();
+        if (dinamicaJogo.devorarOvelha(loboo,ovelha)) {
+            loboo.setCasaPersonagem(casaAcao);
+            loboo.comerOvelha();
+            meuJogador.setMeuLobo(loboo);
+        }
+        // servidor tem que segurar o lobo
+    }
+
+    private void destruirCerca(){
+        Figurante cerca = (Figurante) dinamicaJogo.casaOcupadaPorElemento(casaAcao);
+        Lobo lobo = (Lobo) dinamicaJogo.casaOcupadaPorElemento(ultimaCasaPressionada);
+        if (dinamicaJogo.destruirCerca(lobo,cerca)){
+            lobo.destruirCerca();
+            lobo.setCasaPersonagem(casaAcao);
+            meuJogador.setMeuLobo(lobo);
+        }
     }
 
     //Atualiza o jogo.
@@ -186,6 +423,7 @@ public class MainActivity extends ActionBarActivity {
         Pastor meuPastor = new Pastor(Ocupante.Pastor,casaAlocarEsquerda);
         casaAlocarEsquerda.setPosicaoY(casaAlocarEsquerda.getPosicaoY()+1);
         Lobo meuLobo = new Lobo(Ocupante.Lobo,casaAlocarEsquerda);
+
         meuJogador = new Jogador(new ArrayList<Personagem>());
         meuJogador.addPersonagem(meuPastor);
         meuJogador.addPersonagem(meuLobo);
@@ -194,25 +432,18 @@ public class MainActivity extends ActionBarActivity {
         atualizarCasaPorOcupante(meuLobo.getCasaPersonagem(),meuLobo.getNomeEspaco());
 
     }
-
-    private class ButtonClickListenerAcao implements View.OnClickListener {
-
-        @Override
-        public void onClick(View view) {
-
-        }
-    }
-    private class ButtonClickListener implements View.OnClickListener{
+    private class ButtonOvelhaCercaListener implements View.OnClickListener{
         private int x,y;
         private Casa casa;
-        public ButtonClickListener(int x, int y){
+        public ButtonOvelhaCercaListener(int x, int y){
+            casa = ultimaCasaPressionada;
             if (x>=0) {
                 this.x = x;
                 this.y = y;
-                casa = new Casa(x, y);
+                casaAcao = new Casa(x,y);
             }else{
-             this.x = x;
-             this.y = y;
+                this.x = x;
+                this.y = y;
             }
 
         }
@@ -224,36 +455,144 @@ public class MainActivity extends ActionBarActivity {
                     //Precisamos saber qual personagem eh
                     switch (dinamicaJogo.casaOcupadaPor(casa)) {
                         case Pastor:
-                            texto.setText("ACAO:");
-                            buttonMover.setVisibility(View.VISIBLE);
-                            buttonMover.setText("Mover");
-                            buttonOvelha.setVisibility(View.VISIBLE);
-                            buttonOvelha.setText("Criar ovelha");
-                            buttonCerca.setVisibility(View.VISIBLE);
-                            buttonCerca.setText("Cercar");
+                            if (dinamicaJogo.casaOcupadaPor(casaAcao).equals(Ocupante.Ovelha)) {
+                                texto.setText("ACAO:");
+                                buttonMover.setVisibility(View.VISIBLE);
+                                buttonMover.setText("Alimentar Ovelha");
+                                buttonMover.setOnClickListener(new ButtonOvelhaCercaListener(-1, 0));
+                            }
                             break;
                         case Lobo:
                             texto.setText("ACAO:");
-                            buttonMover.setVisibility(View.VISIBLE);
-                            buttonMover.setText("Mover");
-                            buttonOvelha.setVisibility(View.VISIBLE);
-                            buttonOvelha.setText("Comer ovelha");
-                            buttonCerca.setVisibility(View.VISIBLE);
-                            buttonCerca.setText("Destruir");
+                            if (dinamicaJogo.casaOcupadaPor(casaAcao).equals(Ocupante.Ovelha)) {
+                                buttonMover.setVisibility(View.VISIBLE);
+                                buttonMover.setText("Comer Ovelha");
+                                buttonMover.setOnClickListener(new ButtonOvelhaCercaListener(-1, 1));
+                            }else if(dinamicaJogo.casaOcupadaPor(casaAcao).equals(Ocupante.Cerca)) {
+                                buttonMover.setVisibility(View.VISIBLE);
+                                buttonMover.setText("Destruir");
+                                buttonMover.setOnClickListener(new ButtonOvelhaCercaListener(-1, 2));
+                            }
                             break;
                     }
                 }
                 else if (casaPertenceAoJogador(casa) && x<0 ){
+                    desativarCasasDisponiveis(ultimaCasaPressionada);
+                    desativaCercaAoRedor(ultimaCasaPressionada);
+                    desativaOvelhaAoRedor(ultimaCasaPressionada);
+                    switch(y){
+                        case 0:
+                            alimentarOvelha();
+                            break;
+                        case 1:
+                            if (dinamicaJogo.casaOcupadaPor(ultimaCasaPressionada).equals(Ocupante.Lobo)){
+                                comerOvelha();
+                            }
+                            break;
+                        case 2:
+                            if (dinamicaJogo.casaOcupadaPor(ultimaCasaPressionada).equals(Ocupante.Lobo)){
+                                destruirCerca();
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }
+    private class ButtonMoveListener implements View.OnClickListener{
+        private int x,y;
+        private Casa casa;
+        public ButtonMoveListener(int x, int y){
+            casa = ultimaCasaPressionada;
+            if (x > 0) {
+                this.x = x;
+                this.y = y;
+                casaAcao = new Casa(x,y);
+            }else if (x < 0){
+                this.x = x;
+                this.y = y;
+            }
+        }
+
+        @Override
+        public void onClick(View view) {
+            if (gameOn){
+                if (casaPertenceAoJogador(casa) && x > 0 ){
+                    //Precisamos saber qual personagem eh
+                    switch (dinamicaJogo.casaOcupadaPor(casa)) {
+                        case Pastor:
+                            texto.setText("ACAO:");
+                            buttonMover.setVisibility(View.VISIBLE);
+                            buttonMover.setOnClickListener(new ButtonMoveListener(-1, 0));
+                            buttonMover.setText("Mover");
+                            buttonOvelha.setVisibility(View.VISIBLE);
+                            buttonOvelha.setOnClickListener(new ButtonMoveListener(-1, 1));
+                            buttonOvelha.setText("Criar ovelha");
+                            buttonCerca.setVisibility(View.VISIBLE);
+                            buttonCerca.setOnClickListener(new ButtonMoveListener(-1, 2));
+                            buttonCerca.setText("Cercar");
+                            break;
+                        case Lobo:
+                            ultimaCasaPressionada = this.casa;
+                            texto.setText("ACAO:");
+                            buttonMover.setVisibility(View.VISIBLE);
+                            buttonMover.setText("Mover");
+                            buttonMover.setOnClickListener(new ButtonMoveListener(-1,0));
+                            /*
+                            buttonOvelha.setVisibility(View.VISIBLE);
+                            buttonOvelha.setText("Comer ovelha");
+                            buttonCerca.setVisibility(View.VISIBLE);
+                            buttonCerca.setText("Destruir");
+                            */
+                            break;
+                    }
+                }
+                else if (casaPertenceAoJogador(casa) && x < 0 ){
+                    desativarCasasDisponiveis(ultimaCasaPressionada);
+                    desativaCercaAoRedor(ultimaCasaPressionada);
+                    desativaOvelhaAoRedor(ultimaCasaPressionada);
                     switch(y){
                         case 0:
                             habilitarMovimentoPersonagem();
-
                             break;
-                        case -1:
-
+                        case 1:
+                            if (dinamicaJogo.casaOcupadaPor(ultimaCasaPressionada).equals(Ocupante.Pastor)){
+                                criarOvelha();
+                            }
                             break;
-                        case -2:
+                        case 2:
+                            if (dinamicaJogo.casaOcupadaPor(ultimaCasaPressionada).equals(Ocupante.Pastor)){
+                                criarCerca();
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+    }
+    private class ButtonClickListener implements View.OnClickListener{
+        private int x,y;
+        private Casa casa;
+        public ButtonClickListener(int x, int y){
+            this.x = x;
+            this.y = y;
+            casa = new Casa(x, y);
+        }
 
+        @Override
+        public void onClick(View view) {
+            if (gameOn){
+                if (casaPertenceAoJogador(casa) ){
+                    //Precisamos saber qual personagem eh
+                    switch (dinamicaJogo.casaOcupadaPor(casa)) {
+                        case Pastor:
+                        case Lobo:
+                            ultimaCasaPressionada = this.casa;
+                            avaliaCasaAoRedor(this.casa);
+                            avaliaOvelhaAoRedor(this.casa);
+                            avaliaCercaAoRedor(this.casa);
+                            break;
+                        default:
                             break;
                     }
                 }

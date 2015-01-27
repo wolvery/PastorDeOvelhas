@@ -343,4 +343,28 @@
         android:textAlignment="center"
         android:id="@+id/text" />
 
-</LinearLayout><!-- From: file:/C:/Users/Vicente%20Marcelo/Documents/GitHub/PastorDeOvelhas/app/src/main/res/layout/activity_main.xml -->
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button37"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button38"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/button39"
+            android:layout_weight="1" />
+    </TableRow>
+
+</LinearLayout><!-- From: file:/C:/Users/Guilherme/AndroidstudioProjects/PastorDeOvelhas/app/src/main/res/layout/activity_main.xml -->
